@@ -9,4 +9,35 @@ GET {{base_url}}/health
 ###
 
 # Get rooms
+# @name getRooms
 GET {{base_url}}/rooms
+
+###
+
+# Create room
+POST {{base_url}}/rooms
+Content-Type: application/json
+
+{
+  "name": "Sala de teste",
+  "description": "Essa é uma sala de teste"
+}
+
+###
+
+@roomId = {{getRooms.response.body.$.[0].id}}
+
+###
+
+# Get room questions
+GET {{base_url}}/rooms/{{roomId}}/questions
+
+###
+
+# Create question
+POST {{base_url}}/rooms/{{roomId}}/questions
+Content-Type: application/json
+
+{
+  "question": "Qual o valor de PI ?"
+}
