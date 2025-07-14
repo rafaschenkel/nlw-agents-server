@@ -6,19 +6,19 @@ await reset(db, schema);
 await seed(db, schema).refine((f) => {
   return {
     rooms: {
-      count: 20,
+      count: 5,
       columns: {
         name: f.companyName(),
         description: f.loremIpsum(),
-        createdAt: f.date({ minDate: "2022-01-01", maxDate: "2023-01-01" }),
+        createdAt: f.date({ minDate: "2025-01-06", maxDate: "2025-04-06" }),
       },
     },
     questions: {
-      count: 40,
+      count: 20,
       columns: {
         question: f.loremIpsum(),
         answer: f.loremIpsum(),
-        createdAt: f.date({ minDate: "2022-01-01", maxDate: "2023-01-01" }),
+        createdAt: f.date({ minDate: "2025-05-05", maxDate: "2023-07-07" }),
       },
     },
   };
