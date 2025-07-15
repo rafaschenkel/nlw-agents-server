@@ -24,8 +24,8 @@ app.register(fastifyMultipart);
 app.setSerializerCompiler(serializerCompiler);
 app.setValidatorCompiler(validatorCompiler);
 
-app.get("/health", () => {
-  return "ok";
+app.get("/health", (req, reply) => {
+  reply.status(200).send({ status: "ok" });
 });
 
 app.register(getRoomsRoute);
